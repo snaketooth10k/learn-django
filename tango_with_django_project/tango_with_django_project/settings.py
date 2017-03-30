@@ -128,9 +128,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Media files (User loaded and dynamic content
-MEDIA_ROOT = [
-    MEDIA_DIR,
-]
+MEDIA_ROOT = MEDIA_DIR
 
 MEDIA_URL = '/media/'
 

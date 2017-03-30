@@ -11,8 +11,11 @@
     <h1>Rango is a cool page!</h1>
     <div>
         <p>This page was created by {{ author }}.</p>
-        <a href="/rango/">Go Back</a>
-        <img src="{% static 'images/chameleon.jpg' %}" alt="Real chameleon" width="200px" />
+        <a href="/rango/">Go Back</a><br />
+        <img src="{% static 'images/chameleon.jpeg' %}" alt="Real chameleon" width="200px" />
+    </div>
+    <div>
+        <img src="{{MEDIA_URL}}cat.jpeg" alt="A cat" width="200 px" />
     </div>
 </body>
 </html>
