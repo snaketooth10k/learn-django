@@ -65,6 +65,6 @@ def add_cat(name):
     c.save()
     return c
 
-    if __name__ == '__main__':
-        print("Starting population script. . .")
-        populate()
+if __name__ == '__main__':
+    print("Starting population script. . .")
+    populate()
