@@ -1,11 +1,13 @@
 # from django.http import HttpResponse
 from django.shortcuts import render
+from rango.models import Category
 
 # Create your views here.
 
 
 def index(request):
-    context_dict = {'bold_message': 'Here is a message from the view!'}
+    category_list = Category.objects.order_by("-likes")[:5]
+    context_dict = {'categories': category_list}
     return render(request, 'rango/index.xhtml', context=context_dict)
 
 

@@ -13,7 +13,17 @@
     <h1>Rango says...</h1>
     <div>
         hey there partner!<br />
-        <strong>{{ bold_message }}</strong><br />
+    </div>
+    <div>
+        {% if categories %}
+        <ul>
+            {% for category in categories %}
+            <li>{{ category.name }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>There are no categores. . . </strong>
+        {% endif %}
     </div>
     <div>
         <a href="/rango/about/">About</a><br />
