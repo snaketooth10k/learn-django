@@ -75,8 +75,15 @@ WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tango_with_django',
+        'USER': 'django',
+        'PASSWORD': 'djangopass',
+        'HOST': 'localhost',
+        'PORT': '',
+        'OPTIONS': {
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES", innodb_strict_mode=1',
+        }
     }
 }
 
