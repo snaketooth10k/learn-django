@@ -1,8 +1,7 @@
-*.pyc
 *.sqlite3
-*.DS_Store
 page_category_model.mwb.bak
 .idea/
-tango_with_django_project/rango/migrations/*
-tango_with_django_project/rango/__pycache__/
-tango_with_django_project/tango_with_django_project/__pycache__/
+tango_with_django_project/rango/migrations/0002_auto_20170330_2101.py
+tango_with_django_project/rango/migrations/0003_auto_20170330_2105.py
+tango_with_django_project/rango/migrations/0004_category_slug.py
+tango_with_django_project/rango/migrations/0005_auto_20170330_2343.py
