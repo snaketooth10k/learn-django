@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -10,4 +10,5 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse('Rango says here is the about page. <a href="/rango/">Go back</a>')
+    context_dict = {'author': 'William Reynolds'}
+    return render(request, 'rango/about.xhtml', context=context_dict)
