@@ -1,10 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
 
 def index(request):
-    return HttpResponse('Hey there partner! Welcome to Rango. <a href="about/">About</a>')
+    context_dict = {'bold_message': 'Here is a message from the view!'}
+    return render(request, 'rango/index.xhtml', context=context_dict)
 
 
 def about(request):
