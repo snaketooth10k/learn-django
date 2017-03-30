@@ -1,6 +1,6 @@
 # from django.http import HttpResponse
 from django.shortcuts import render
-from rango.models import Category
+from rango.models import Category, Page
 
 # Create your views here.
 
@@ -14,3 +14,6 @@ def index(request):
 def about(request):
     context_dict = {'author': 'William Reynolds'}
     return render(request, 'rango/about.xhtml', context=context_dict)
+
+def show_category(request, category_url):
+
