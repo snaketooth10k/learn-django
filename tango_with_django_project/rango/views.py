@@ -32,7 +32,7 @@ def add_category(request):
         else:
             print(form.errors)
 
-    return render(request, 'rango/add_category.xhtml', {'form': form})
+    return render(request, 'rango/add-category.xhtml', {'form': form})
 
 
 def add_page(request):
@@ -46,7 +46,7 @@ def add_page(request):
         else:
             print(form.errors)
 
-    return render(request, 'rango/add_category.xhtml', {'form': form})
+    return render(request, 'rango/add-page.xhtml', {'form': form})
 
 
 def show_category(request, category_slug):
