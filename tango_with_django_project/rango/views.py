@@ -15,5 +15,16 @@ def about(request):
     context_dict = {'author': 'William Reynolds'}
     return render(request, 'rango/about.xhtml', context=context_dict)
 
-def show_category(request, category_url):
+def show_category(request, category_slug):
+    context_dict = {}
+    try:
+        category = Category.objects.get(slug=category_slug)
+        pages = Page.objects.filter(category=category)
+        context_dict['category'] = category
+        context_dict['pages'] = pages
 
+    except Category.DoesNotExist:
+        context_dict['category'] = None
+        context_dict['pages'] = None
+
+    return render(request, 'rango/category.xhtml', context=context_dict)
