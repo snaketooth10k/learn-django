@@ -8,7 +8,8 @@
 </head>
 <body>
     <div>
-        <form id="add-page" method="post" action="/rango/add-page/">
+        {% if category %}
+        <form id="add-page" method="post" action="/rango/category/{{ category.slug }}/add-page/">
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
@@ -20,6 +21,10 @@
             {% endfor %}
             <input type="submit" name="submit" value="Create Page" />
         </form>
+        {% else %}
+        This isn't a category<br />
+        <a href="/rango/">Go Home</a>
+        {% endif %}
     </div>
 </body>
 </html>

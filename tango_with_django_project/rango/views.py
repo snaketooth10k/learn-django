@@ -56,7 +56,7 @@ def add_page(request, category_slug):
             print(form.errors)
 
     context_dict = {'form': form, 'category': category}
-    return render(request, '/rango/add-page.xhtml', context_dict)
+    return render(request, 'rango/add-page.xhtml', context_dict)
 
 
 def show_category(request, category_slug):
