@@ -15,6 +15,7 @@
         hey there partner!<br />
     </div>
     <div>
+        <h4>Most liked categories</h4>
         {% if categories %}
         <ul>
             {% for category in categories %}
@@ -23,6 +24,18 @@
         </ul>
         {% else %}
         <strong>There are no categores. . . </strong>
+        {% endif %}
+    </div>
+    <div>
+        <h4>Most viewed pages</h4>
+        {% if pages %}
+        <ul>
+            {% for page in pages %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <strong>There are no pages. . .</strong>
         {% endif %}
     </div>
     <div>
