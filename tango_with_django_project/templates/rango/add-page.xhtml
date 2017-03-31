@@ -14,7 +14,7 @@
                 {{ hidden }}
             {% endfor %}
             {% for field in form.visible_items %}
-                {{ field.error }}
+                {{ field.errors }}
                 {{ field.help_text }}
                 {{ field }}
             {% endfor %}
