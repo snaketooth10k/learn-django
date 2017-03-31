@@ -8,12 +8,12 @@
 </head>
 <body>
     <div>
-        <form id="category_form" method="post" action="/rango/add_category/">
+        <form id="category_form" method="post" action="/rango/add-category/">
             {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
+            {% for hidden in form.hidden_items %}
                 {{ hidden }}
             {% endfor %}
-            {% for field in form.visible_fields %}
+            {% for field in form.visible_items %}
                 {{ field.errors }}
                 {{ field.help_text }}
                 {{ field }}
