@@ -3,6 +3,7 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 {% load staticfiles %}
+{% load rango_template_tags %}
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="content-type" content="application/xhtml+xml;charset=utf-8" />
@@ -14,6 +15,11 @@
     </title>
 </head>
 <body>
+    <div>
+        {% block sidebar_block %}
+            {% get_category_list %}
+        {% endblock %}
+    </div>
     <div>
         {% block body_block %}
         {% endblock %}
