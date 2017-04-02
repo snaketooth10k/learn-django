@@ -1,4 +1,6 @@
-# from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from rango.models import Category, Page
 from rango.forms import *
@@ -57,6 +59,28 @@ def index(request):
         'pages': page_list
     }
     return render(request, 'rango/index.xhtml', context=context_dict)
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+
+            else:
+                return HttpResponse('Your rango account is disabled')
+        else:
+            print('Bad login: -{0} -{1}'.format(username, password))
+            HttpResponse('Incorrect username/password')
+
+    else:
+        return render(request, 'rango/login.xhtml', {})
 
 
 def register(request):
