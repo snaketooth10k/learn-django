@@ -21,9 +21,15 @@
     <hr />
     <div>
         <ul>
-            <li><a href="{%  url 'rango:add_category' %}">Add New Category</a></li>
-            <li><a href="{% url 'rango:about' %}">About</a></li>
-            <li><a href="{% url 'rango:index' %}">Index</a>Index</li>
+            {% block add_category_link %}
+                <li><a href="{%  url 'rango:add_category' %}">Add New Category</a></li>
+            {% endblock %}
+            {% block about_link %}
+                <li><a href="{% url 'rango:about' %}">About</a></li>
+            {% endblock %}
+            {% block index_link %}
+                <li><a href="{% url 'rango:index' %}">Index</a>Index</li>
+            {% endblock %}
         </ul>
     </div>
 </body>
