@@ -7,12 +7,8 @@
 {% block body_block %}
     <h1>Register for Rango</h1>
     {% if registered %}
-        Rango says: <strong>thank you for registering</strong>
+        Rango says: <strong>thank you for registering</strong><br />
         <a href="{% url 'rango:index' %}">Go Home</a>
-        {% block index_link %}
-        {% endblock %}
-        {% block register_link %}
-        {% endblock %}
     {% else %}
         Rango says: <strong>register here</strong>
         <form id="user_form" method="post" action="{% url 'rango:register' %}" enctype="multipart/form-data">
@@ -22,4 +18,7 @@
             <input type="submit" name="submit" value="Register" />
         </form>
     {% endif %}
+{% endblock %}
+
+{% block register_link %}
 {% endblock %}
