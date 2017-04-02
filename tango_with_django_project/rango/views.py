@@ -6,16 +6,6 @@ from rango.forms import CategoryForm, PageForm
 # Create your views here.
 
 
-def index(request):
-    category_list = Category.objects.order_by("-likes")[:5]
-    page_list = Page.objects.order_by("-views")[:5]
-    context_dict = {
-        'categories': category_list,
-        'pages': page_list
-    }
-    return render(request, 'rango/index.xhtml', context=context_dict)
-
-
 def about(request):
     context_dict = {'author': 'William Reynolds'}
     return render(request, 'rango/about.xhtml', context=context_dict)
@@ -57,6 +47,16 @@ def add_page(request, category_slug):
 
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.xhtml', context_dict)
+
+
+def index(request):
+    category_list = Category.objects.order_by("-likes")[:5]
+    page_list = Page.objects.order_by("-views")[:5]
+    context_dict = {
+        'categories': category_list,
+        'pages': page_list
+    }
+    return render(request, 'rango/index.xhtml', context=context_dict)
 
 
 def show_category(request, category_slug):
