@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from rango.models import Category, Page
 from rango.forms import CategoryForm, PageForm
+from django.core.urlresolvers import reverse
 
 # Create your views here.
 
@@ -13,12 +14,12 @@ def index(request):
         'categories': category_list,
         'pages': page_list
     }
-    return render(request, 'rango/index.xhtml', context=context_dict)
+    return render(request, reverse('rango:index'), context=context_dict)
 
 
 def about(request):
     context_dict = {'author': 'William Reynolds'}
-    return render(request, 'rango/about.xhtml', context=context_dict)
+    return render(request, reverse('rango:about'), context=context_dict)
 
 
 def add_category(request):
@@ -32,7 +33,7 @@ def add_category(request):
         else:
             print(form.errors)
 
-    return render(request, 'rango/add_category.xhtml', {'form': form})
+    return render(request, reverse('rango:add_category'), {'form': form})
 
 
 def add_page(request, category_slug):
@@ -56,7 +57,7 @@ def add_page(request, category_slug):
             print(form.errors)
 
     context_dict = {'form': form, 'category': category}
-    return render(request, 'rango/add_page.xhtml', context_dict)
+    return render(request, reverse('add_page'), context_dict)
 
 
 def show_category(request, category_slug):
