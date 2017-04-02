@@ -55,6 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+PASSWORD_HASHERS = {
+    'django.conf.auth.hashers.Argon2PasswordHasher'
+}
+
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
 TEMPLATES = [
