@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% extends 'rango/base.xhtml' %}
 {% load staticfiles %}
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Rango</title>
-</head>
-<body>
+
+{% block title_block %}
+About Rango
+{% endblock %}
+
+{% block body_block %}
     <h1>Rango is a cool page!</h1>
     <div>
         <p>This page was created by {{ author }}.</p>
@@ -16,5 +14,6 @@
     <div>
         <img src="{{ MEDIA_URL }}cat.jpeg" alt="A cat" width="200 px" />
     </div>
-</body>
-</html>
+{% endblock %}
+{% block about_link %}
+{% endblock %}
