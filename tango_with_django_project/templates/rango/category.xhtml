@@ -22,3 +22,11 @@
         <strong>This category does not exist. . .</strong>
     {% endif %}
 {% endblock %}
+
+{% block add_category_link %}
+    {% if category %}
+        <li><a href="{% url 'rango:add_page' category.slug %}">Add a Page</a></li>
+    {% else %}
+        <strong>This is not a category</strong>
+    {% endif %}
+{% endblock %}
