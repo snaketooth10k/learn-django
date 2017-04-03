@@ -10,12 +10,6 @@ from datetime import datetime
 
 
 def about(request):
-    if request.session.test_cookie_worked():
-        print('Hot cookie here')
-        request.session.delete_test_cookie()
-    else:
-        print('No cookies here')
-
     context_dict = {'author': 'William Reynolds'}
     return render(request, 'rango/about.xhtml', context=context_dict)
 
@@ -37,7 +31,6 @@ def add_category(request):
 
 @login_required()
 def add_page(request, category_slug):
-
     try:
         category = Category.objects.get(slug=category_slug)
     except Category.DoesNotExist:
@@ -61,8 +54,6 @@ def add_page(request, category_slug):
 
 
 def index(request):
-    request.session.set_test_cookie()
-
     category_list = Category.objects.order_by("-likes")[:5]
     page_list = Page.objects.order_by("-views")[:5]
     context_dict = {
