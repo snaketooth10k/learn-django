@@ -102,7 +102,7 @@ def register(request):
 
 @login_required()
 def restricted(request):
-    return HttpResponse('If you can see this, you\'re logged in!')
+    return render(request, 'rango/restricted.xhtml', {})
 
 
 def show_category(request, category_slug):
