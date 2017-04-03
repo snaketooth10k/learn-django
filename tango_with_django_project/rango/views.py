@@ -122,6 +122,7 @@ def register(request):
     return render(request, 'rango/register.xhtml', context_dict)
 
 
+@login_required()
 def restricted(request):
     return HttpResponse('If you can see this, you\'re logged in!')
 
