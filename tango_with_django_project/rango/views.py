@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -12,6 +13,7 @@ def about(request):
     return render(request, 'rango/about.xhtml', context=context_dict)
 
 
+@login_required()
 def add_category(request):
     form = CategoryForm
 
@@ -26,6 +28,7 @@ def add_category(request):
     return render(request, 'rango/add_category.xhtml', {'form': form})
 
 
+@login_required()
 def add_page(request, category_slug):
 
     try:
@@ -117,6 +120,10 @@ def register(request):
     }
 
     return render(request, 'rango/register.xhtml', context_dict)
+
+
+def restricted(request):
+    return HttpResponse('If you can see this, you\'re logged in!')
 
 
 def show_category(request, category_slug):
