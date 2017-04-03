@@ -20,7 +20,6 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 PASSWORD_DICT = os.path.join(BASE_DIR, 'passwords.txt.gz')
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
