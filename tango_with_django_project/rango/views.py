@@ -145,4 +145,4 @@ def user_login(request):
 @login_required()
 def user_logout(request):
     logout(request)
-    HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('index'))
