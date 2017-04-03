@@ -121,27 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS': {
-            'min_length': 11,
-        },
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-        'OPTIONS': {
-            'password_list_path': PASSWORD_DICT,
-        },
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
 LOGIN_URL = '/rango/login/'
 
 # Internationalization
