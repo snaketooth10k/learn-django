@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
@@ -63,28 +63,6 @@ def index(request):
     return render(request, 'rango/index.xhtml', context=context_dict)
 
 
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(username=username, password=password)
-
-        if user:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect(reverse('index'))
-
-            else:
-                return HttpResponse('Your rango account is disabled')
-        else:
-            print('Bad login: -{0} -{1}'.format(username, password))
-            return HttpResponse('Incorrect username or password')
-
-    else:
-        return render(request, 'rango/login.xhtml', {})
-
-
 def register(request):
     registered = False
 
@@ -140,3 +118,31 @@ def show_category(request, category_slug):
         context_dict['pages'] = None
 
     return render(request, 'rango/category.xhtml', context=context_dict)
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+
+            else:
+                return HttpResponse('Your rango account is disabled')
+        else:
+            print('Bad login: -{0} -{1}'.format(username, password))
+            return HttpResponse('Incorrect username or password')
+
+    else:
+        return render(request, 'rango/login.xhtml', {})
+
+
+@login_required()
+def user_logout(request):
+    logout(request)
+    HttpResponseRedirect(reverse('index'))
