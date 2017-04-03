@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from rango.models import *
 from rango.forms import *
-import datetime
+from datetime import datetime
 
 # Create your views here.
 
@@ -70,7 +70,11 @@ def index(request):
         'categories': category_list,
         'pages': page_list
     }
-    return render(request, 'rango/index.xhtml', context=context_dict)
+
+    response = render(request, 'rango/index.xhtml', context=context_dict)
+    visitor_cookie_handler(request, response)
+    return response
+
 
 
 def register(request):
