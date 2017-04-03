@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from rango.models import *
 from rango.forms import *
 from datetime import datetime
 
@@ -74,7 +73,6 @@ def index(request):
     response = render(request, 'rango/index.xhtml', context=context_dict)
     visitor_cookie_handler(request, response)
     return response
-
 
 
 def register(request):
