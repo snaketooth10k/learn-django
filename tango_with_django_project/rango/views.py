@@ -62,6 +62,7 @@ def index(request):
     }
 
     visitor_cookie_handler(request)
+    print(request.session['visits'])
 
     return render(request, 'rango/index.xhtml', context=context_dict)
 
