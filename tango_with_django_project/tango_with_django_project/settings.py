@@ -20,7 +20,6 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 PASSWORD_DICT = os.path.join(BASE_DIR, 'passwords.txt.gz')
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -54,14 +53,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
 ]
 
 ROOT_URLCONF = 'tango_with_django_project.urls'
@@ -122,28 +113,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS': {
-            'min_length': 11,
-        },
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-        'OPTIONS': {
-            'password_list_path': PASSWORD_DICT,
-        },
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
 ]
 
 LOGIN_URL = '/rango/login/'
+
+SESSION_COOKIE_AGE = 1209600
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
