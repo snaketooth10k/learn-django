@@ -123,6 +123,8 @@ PASSWORD_HASHERS = [
 
 LOGIN_URL = '/rango/login/'
 
+SESSION_COOKIE_AGE = 1209600
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
