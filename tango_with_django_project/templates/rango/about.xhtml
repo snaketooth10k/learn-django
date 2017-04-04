@@ -7,12 +7,10 @@ About Rango
 
 {% block body_block %}
     <h1>Rango is a cool page!</h1>
-    <div>
+    <div id="message">
         <p>This page was created by {{ author }}.</p>
         <p>Number of visits: {{ visits }}</p>
         <img src="{% static 'images/chameleon.jpeg' %}" alt="Real chameleon" width="200px" />
-    </div>
-    <div>
         <img src="{{ MEDIA_URL }}cat.jpeg" alt="A cat" width="200 px" />
     </div>
 {% endblock %}
