@@ -10,7 +10,12 @@ from datetime import datetime
 
 
 def about(request):
-    context_dict = {'author': 'William Reynolds'}
+    visitor_cookie_handler(request)
+
+    context_dict = {
+        'author': 'William Reynolds',
+        'visits': request.session['visits'],
+    }
     return render(request, 'rango/about.xhtml', context=context_dict)
 
 
@@ -62,7 +67,6 @@ def index(request):
     }
 
     visitor_cookie_handler(request)
-    print(request.session['visits'])
 
     return render(request, 'rango/index.xhtml', context=context_dict)
 
