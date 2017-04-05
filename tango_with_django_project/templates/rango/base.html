@@ -27,6 +27,7 @@
             {% if user.is_authenticated %}
                 <li><a href="{% url 'rango:restricted' %}">Restricted Area</a></li>
                 <li><a href="{% url 'registration:auth_logout' %}?next=/rango/">Logout</a></li>
+                <li><a href="{% url 'registration:auth_password_change' %}">Change Password</a></li>
             {% else %}
                 <li><a href="{% url 'registration:auth_login' %}">Login</a></li>
                 <li><a href="{% url 'registration:registration_register' %}">Register</a></li>
