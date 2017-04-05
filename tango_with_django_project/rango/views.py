@@ -16,7 +16,7 @@ def about(request):
         'author': 'William Reynolds',
         'visits': request.session['visits'],
     }
-    return render(request, 'rango/about.xhtml', context=context_dict)
+    return render(request, 'rango/about.html', context=context_dict)
 
 
 @login_required()
@@ -31,7 +31,7 @@ def add_category(request):
         else:
             print(form.errors)
 
-    return render(request, 'rango/add_category.xhtml', {'form': form})
+    return render(request, 'rango/add_category.html', {'form': form})
 
 
 @login_required()
@@ -55,7 +55,7 @@ def add_page(request, category_slug):
             print(form.errors)
 
     context_dict = {'form': form, 'category': category}
-    return render(request, 'rango/add_page.xhtml', context_dict)
+    return render(request, 'rango/add_page.html', context_dict)
 
 
 def index(request):
@@ -68,7 +68,7 @@ def index(request):
 
     visitor_cookie_handler(request)
 
-    return render(request, 'rango/index.xhtml', context=context_dict)
+    return render(request, 'rango/index.html', context=context_dict)
 
 
 def register(request):
@@ -105,12 +105,12 @@ def register(request):
         'registered': registered,
     }
 
-    return render(request, 'rango/register.xhtml', context_dict)
+    return render(request, 'rango/register.html', context_dict)
 
 
 @login_required()
 def restricted(request):
-    return render(request, 'rango/restricted.xhtml', {})
+    return render(request, 'rango/restricted.html', {})
 
 
 def show_category(request, category_slug):
@@ -125,7 +125,7 @@ def show_category(request, category_slug):
         context_dict['category'] = None
         context_dict['pages'] = None
 
-    return render(request, 'rango/category.xhtml', context=context_dict)
+    return render(request, 'rango/category.html', context=context_dict)
 
 
 def user_login(request):
@@ -147,7 +147,7 @@ def user_login(request):
             return HttpResponse('Incorrect username or password')
 
     else:
-        return render(request, 'rango/login.xhtml', {})
+        return render(request, 'rango/login.html', {})
 
 
 @login_required()

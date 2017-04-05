@@ -1,4 +1,4 @@
-{% extends 'rango/base.xhtml' %}
+{% extends 'rango/base.html' %}
 
 {% block title_block %}
     Login
@@ -8,8 +8,8 @@
     Rango says: <strong>log in</strong><br />
     <form id="login_form" method="post" action="{% url 'rango:login' %}">
         {% csrf_token %}
-        <label>Username: </label><input type="text" name="username" value="" size="30" /><br />
-        <label>Password: </label><input type="password" name="password" value="" size="30"/><br />
+        <label for="username">Username: </label><input id="username" type="text" name="username" value="" size="30" /><br />
+        <label for="password">Password: </label><input id="password" type="password" name="password" value="" size="30"/><br />
         <input type="submit" name="submit" value="log in" />
     </form>
 {% endblock %}
