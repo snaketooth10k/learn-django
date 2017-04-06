@@ -1,8 +1,17 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+{% block title %}
+    Index
+{% endblock %}
+
 {% block body_block %}
-    <h1>Rango says...</h1>
+    <div class="jumbotron">
+        <h1 class="display-3">Rango says...</h1>
+        {% if user.is_authenticated %}
+            <h1>hey there {{ user.username }}</h1>
+        {% endif %}
+    </div>
     <div>
         hey there partner!<br />
     </div>
