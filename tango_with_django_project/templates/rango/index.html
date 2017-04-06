@@ -29,19 +29,22 @@
                 {% endif %}
             </p>
         </div>
+        <div class="col-lg-6">
+            <h4>Most Viewed Pages</h4>
+            <p>
+                {% if pages %}
+                    <ul>
+                        {% for page in pages %}
+                            <li><a href="{{ page.url }}"></a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong>There are no pages.</strong>
+                {% endif %}
+            </p>
+        </div>
     </div>
-    <div>
-        <h4>Most liked categories</h4>
-        {% if categories %}
-        <ul>
-            {% for category in categories %}
-            <li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <strong>There are no categores. . . </strong>
-        {% endif %}
-    </div>
+
     <div>
         <h4>Most viewed pages</h4>
         {% if pages %}
