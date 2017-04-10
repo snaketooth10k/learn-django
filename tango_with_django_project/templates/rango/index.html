@@ -19,9 +19,9 @@
             <h4>Most Liked Categories</h4>
             <p>
                 {% if categories %}
-                    <ul>
+                    <ul class="list-group">
                         {% for category in categories %}
-                            <li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
+                            <li class="list-group-item"><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
                         {% endfor %}
                     </ul>
                 {% else %}
@@ -33,9 +33,9 @@
             <h4>Most Viewed Pages</h4>
             <p>
                 {% if pages %}
-                    <ul>
+                    <ul class="list-group">
                         {% for page in pages %}
-                            <li><a href="{{ page.url }}"></a></li>
+                            <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a></li>
                         {% endfor %}
                     </ul>
                 {% else %}
